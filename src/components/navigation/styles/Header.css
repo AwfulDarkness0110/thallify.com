@@ -1,0 +1,28 @@
+.header {
+    padding: 10vw 20px 40px 20px;
+}
+.header-title {
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 41px;
+    position: relative;
+    width: fit-content;
+    overflow: hidden;
+}
+.header-title::before {
+    animation: 1.6s linear 0.5s forwards header-animation;
+    background: linear-gradient(90deg, var(--color-tertiary), var(--color-tertiary), var(--color-tertiary));
+    content: "";
+    position: absolute;
+    inset: 0px;
+    min-width: 750px;
+}
+
+@keyframes header-animation {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}

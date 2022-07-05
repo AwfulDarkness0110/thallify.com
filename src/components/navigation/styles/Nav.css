@@ -1,0 +1,106 @@
+.nav::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    top: -22px;
+    height: 45px;
+    background: var(--color-main);
+    z-index: 3;
+    -webkit-transform: translateZ(0) skewY(-3deg);
+    transform: translateZ(0) skewY(-3deg);
+    outline: 1px solid transparent;
+    width: 100.1%;
+}
+
+.nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 20px 35px 20px;
+    background-color: var(--color-main);
+    border-bottom: 1px solid var(--color-tertiary);
+}
+
+.nav-right,
+.nav-left {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-right .nav-item {
+    border-bottom: none;
+}
+.nav-item svg {
+    width: 25px;
+    height: 25px;
+}
+
+.nav-item {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-menu);
+    fill: var(--text-menu);
+    padding-bottom: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition-duration: var(--transition-duration);
+    border-bottom: 4px solid transparent;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item:hover {
+    opacity: 1;
+}
+
+.nav-item.active {
+    opacity: 1;
+    border-color: var(--text-menu);
+}
+
+.nav-item input {
+    width: 30px;
+    height: 23px;
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-menu);
+    border-radius: var(--border-radius-sm);
+    border: 2px solid var(--text-menu);
+}
+
+.nav-item.divider {
+    cursor: default;
+    opacity: 1;
+    color: var(--color-border);
+}
+
+@media (max-width: 769px) {
+    .nav {
+        flex-direction: column;
+        gap: 0;
+        padding: 35px 0 20px 0;
+    }
+
+    .nav-item {
+        font-size: 16px;
+    }
+    .nav-left {
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: space-around;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid var(--color-tertiary);
+    }
+
+    .nav-right {
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: space-around;
+    }
+}
