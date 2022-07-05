@@ -404,12 +404,12 @@ a {
     .fs-4 {
         font-size: 16px;
         font-weight: 500;
-        line-height: 1.2;
+        line-height: 1;
     }
     .fs-5 {
         font-size: 12px;
         font-weight: 400;
-        line-height: 1.1;
+        line-height: 1;
     }
 
     .content {

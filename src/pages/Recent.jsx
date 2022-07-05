@@ -25,7 +25,7 @@ const Tracks = () => {
     return (
         <div className="container pb-1 content">
             <Header />
-            <div className="filter-shadow">
+            <div className="filter-shadow overflow-hidden">
                 <Nav
                     setLayout={setLayout}
                     layout={layout}

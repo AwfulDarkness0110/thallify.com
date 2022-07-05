@@ -1,8 +1,19 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { SpotifyLogin } from './';
 import { logo } from '../assets/img/img';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const { user } = useSelector(state => state.user);
+
+    useEffect(() => {
+        if (user) {
+            navigate('/top-artists');
+        }
+    }, [navigate, user]);
+
     return (
         <>
         <div 

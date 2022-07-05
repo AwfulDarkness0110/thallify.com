@@ -15,6 +15,7 @@ const AuthGate = ({ children }) => {
         if (user && user.expiresIn && user.loginTime && ((+user.expiresIn * 1000) + (+user.loginTime)) < Date.now()) {
             console.log("Token expired, please login again");
             localStorage.removeItem('user');
+            window.location.reload();
             navigate('/');
         } else if (user) {
             console.log('Token will expire in minutes: ', (((+user.expiresIn * 1000) + (+user.loginTime) - Date.now()) / 60000).toFixed(2));

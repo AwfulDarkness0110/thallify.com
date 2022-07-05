@@ -13,7 +13,6 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit})
     const downloadImage = () => {
         setIsSaving(true)
         const node = document.querySelector('.image-node')
-
         const newElement = document.createElement('div')
 
         newElement.className = 'p-1 title-2 border-bottom text-center'
@@ -32,6 +31,7 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit})
         .then(function (dataUrl) {
             saveAs(dataUrl, 'thallify.png');
             setIsSaving(false)
+            node.classList.remove('image-node-loading')
             document.querySelector('.image-node').removeChild(newElement)
         })
         .catch(function (error) {
