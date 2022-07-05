@@ -420,9 +420,9 @@ a {
     }
 
     .grid-sm {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
     .img-cover.img-cover-grid {
-        height: 200px;
+        height: 150px;
     }
 }

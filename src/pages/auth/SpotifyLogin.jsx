@@ -3,7 +3,7 @@ const SpotifyLogin = () => {
   // const redirect_uri = process.env.REACT_APP_REDIRECT_URI;
   const client_id = "347914a23b8f4e0e88ade72e47daab9a";
   const redirect_uri = 'https://thallify.com/callback/';
-  const scope = 'user-top-read';
+  const scope = 'user-top-read user-read-recently-played';
 
   return (
     <a
