@@ -1,7 +1,7 @@
 const ArtistItem = ({item, index, layout}) => {
   return (
     <a 
-      className="artist-item item-anim flex align-center bg-hover p-1"
+      className={`artist-item item-anim flex align-center bg-hover${layout === 'list_layout' ? ' p-1' : ''}`}
       href={`${item.uri}`}
       style={{
         ['--order']: `${index}`

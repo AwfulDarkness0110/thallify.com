@@ -9,7 +9,7 @@ const About = () => {
   }, [])
 
   return (
-    <div className="container pb-1 content mt-1">
+    <div className="container pb-1 content pt-1">
       <div className="p-1">
         <div>
           <h1 className="title-2">Thallify.com</h1>

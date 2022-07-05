@@ -146,6 +146,7 @@ body {
 .grid-sm {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 8px;
+    grid-auto-rows: max-content;
 }
 .flex {
     display: flex;
@@ -202,7 +203,7 @@ body {
 }
 
 .min-h-sm {
-    min-height: 575px;
+    min-height: 95px;
 }
 
 .h-screen {
@@ -268,6 +269,9 @@ body {
 }
 .p-1 {
     padding: 1rem;
+}
+.pt-1 {
+    padding-top: 3rem;
 }
 .pr-1 {
     padding-right: 1rem;
@@ -352,6 +356,17 @@ a {
     animation-fill-mode: forwards;
     animation-delay: calc(var(--order) * 150ms);
 }
+
+.image-node.saving .item-anim {
+    -webkit-transform: translate3d(0,-0,0)!important;
+    transform: translate3d(0,-0,0)!important;
+    opacity: 1!important;
+    -webkit-animation-name: none!important;
+    animation-name: none!important;
+    animation-duration: 0s!important;
+    animation-delay: 0!important;
+}
+
 .spinner svg {
     animation: spin 1s linear infinite;
 }
@@ -416,7 +431,7 @@ a {
         padding-left: 16px;
         padding-right: 16px;
         padding-top: 0;
-        padding-bottom: 100px;
+        padding-bottom: 85px;
     }
 
     .grid-sm {

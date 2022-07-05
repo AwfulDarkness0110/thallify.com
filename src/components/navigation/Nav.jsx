@@ -5,40 +5,46 @@ import { saveAs } from 'file-saver'
 import { downloadIcon, gridIcon, listIcon, loadingIcon } from "../../assets/icons/icons"
 import "./styles/Nav.css"
 
-const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit}) => {
+const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, maxItemLimit}) => {
     const location = useLocation()
     const [isSaving, setIsSaving] = useState(false)
 
 
     const downloadImage = () => {
         setIsSaving(true)
-        const node = document.querySelector('.image-node')
-        const newElement = document.createElement('div')
+        document.querySelector('.image-node').classList.add('saving')
 
-        newElement.className = 'p-1 title-2 border-bottom text-center'
-        newElement.style.gridColumn = '1/-1'
-        newElement.innerHTML = `
-        <div>
-        ${location.pathname.includes('/recently-played') ? 'My recently played tracks'
-        :
-        `My top ${location.pathname.includes('/top-artists') ? 'artists' : 'tracks'} ${active === 'short_term' ? 'last month' : active === 'medium_term' ? 'last 6 month' : 'of all time'}`
-        }
-        </div>
-        `
-        node.insertBefore(newElement, node.firstChild)
+        setTimeout(() => {
+            const node = document.querySelector('.image-node')
+            const newElement = document.createElement('div')
+            node.classList.add('saving')
 
-        toPng(node)
-        .then(function (dataUrl) {
-            saveAs(dataUrl, 'thallify.png');
-            setIsSaving(false)
-            node.classList.remove('image-node-loading')
-            document.querySelector('.image-node').removeChild(newElement)
-        })
-        .catch(function (error) {
-            setIsSaving(false)
-            document.querySelector('.image-node').removeChild(newElement)
-            console.error('oops, something went wrong!', error);
-        });
+            newElement.className = 'p-1 title-2 border-bottom text-center'
+            newElement.style.gridColumn = '1/-1'
+            newElement.innerHTML = `
+            <div>
+            ${location.pathname.includes('/recently-played') ? 'My recently played tracks'
+            :
+            `My top ${location.pathname.includes('/top-artists') ? 'artists' : 'tracks'} ${active === 'short_term' ? 'last month' : active === 'medium_term' ? 'last 6 month' : 'of all time'}`
+            }
+            </div>
+            `
+            node.insertBefore(newElement, node.firstChild)
+
+            toPng(node)
+            .then(function (dataUrl) {
+                saveAs(dataUrl, 'thallify.png');
+                setIsSaving(false)
+                node.classList.remove('saving')
+                document.querySelector('.image-node').removeChild(newElement)
+            })
+            .catch(function (error) {
+                setIsSaving(false)
+                node.classList.remove('saving')
+                document.querySelector('.image-node').removeChild(newElement)
+                console.error('oops, something went wrong!', error);
+            });
+        }, 1000)
     }
 
     return (
@@ -67,18 +73,17 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit})
             <div className="nav-right">
                 <div className={`nav-item`}>
                     <input
+                        onClick={(e) => e.target.select()}
                         title="Item limit"
                         type="number"
                         value={itemLimit}
                         onChange={(e) => { 
-                            e.target.value < 6 ?
-                            setItemLimit(6) :
+                            e.target.value < 0 ?
+                            setItemLimit(0) :
                             e.target.value > 50 ?
                             setItemLimit(50) :
                             setItemLimit(e.target.value)
                         }}
-                        min="6"
-                        max="50"
                     />
                 </div>
                 {isSaving ? (

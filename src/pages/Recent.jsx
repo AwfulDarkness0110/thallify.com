@@ -32,13 +32,14 @@ const Tracks = () => {
                     setItemLimit={setItemLimit}
                     itemLimit={itemLimit}
                 />
-                <div className={`${layout === 'list_layout' ? 'flex flex-col ' : 'grid grid-sm '}bg-main min-h-sm image-node`}>
+                <div className={`${layout === 'list_layout' ? 'flex flex-col ' : 'grid grid-sm p-1 '}bg-main min-h-sm image-node`}>
                     {!isLoading && recent && recent.length > 0 && recent.slice(0, itemLimit).map((item, index, arr) => (
                         <RecentItem 
                             key={`item-${index}`}
                             item={item}
                             index={index}
                             layout={layout}
+                            maxItemLimit={recent.length}
                         />
                     ))}
                 </div>

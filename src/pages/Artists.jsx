@@ -40,13 +40,14 @@ const Artists = () => {
                     setItemLimit={setItemLimit}
                     itemLimit={itemLimit}
                 />
-                <div className={`${layout === 'list_layout' ? 'flex flex-col ' : 'grid grid-sm '}bg-main min-h-sm image-node`}>
+                <div className={`${layout === 'list_layout' ? 'flex flex-col ' : 'grid grid-sm p-1 '}bg-main min-h-sm image-node`}>
                     {artists && artists.length > 0 && artists.slice(0, itemLimit).map((item, index, arr) => (
                         <ArtistItem 
                             key={`item-${index}`}
                             item={item}
                             index={index}
                             layout={layout}
+                            maxItemLimit={artists.length}
                         />
                     ))}
                 </div>
