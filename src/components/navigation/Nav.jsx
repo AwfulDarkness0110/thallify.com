@@ -47,7 +47,7 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                 setIsSaving(false)
                 node.classList.remove('saving')
                 document.querySelector('.image-node').removeChild(newElement)
-                // document.querySelector('.image-node').removeChild(newElement2)
+                document.querySelector('.image-node').removeChild(newElement2)
             })
             .catch(function (error) {
                 setIsSaving(false)
