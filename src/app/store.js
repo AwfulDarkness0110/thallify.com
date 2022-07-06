@@ -8,4 +8,5 @@ export const store = configureStore({
         user: userReducer,
         list: listReducer,
     },
+    devTools: false,
 });
