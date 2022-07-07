@@ -19,7 +19,8 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
             html2canvas(document.querySelector('.image-node'), {
                 allowTaint: true,
                 useCORS: true,
-                scale: 1,
+                scale: 2,
+                dpi: 300,
             }).then(canvas => {
                 const png = canvas.toDataURL("image/png")
                 saveAs(png, 'image.png')
