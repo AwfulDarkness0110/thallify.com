@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
-import { toPng } from 'html-to-image'
 import { saveAs } from 'file-saver'
+import html2canvas from "html2canvas"
 import { downloadIcon, gridIcon, listIcon, loadingIcon } from "../../assets/icons/icons"
 import "./styles/Nav.css"
 
@@ -16,19 +16,22 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
         document.querySelector('.image-node').style.minWidth = '400px'
 
         setTimeout(() => {
-            toPng(document.querySelector('.image-node'))
-            .then(function (dataUrl) {
-                saveAs(dataUrl, 'thallify.png');
+            html2canvas(document.querySelector('.image-node'), {
+                allowTaint: true,
+                useCORS: true,
+                scale: 1,
+            }).then(canvas => {
+                const png = canvas.toDataURL("image/png")
+                saveAs(png, 'image.png')
                 setIsSaving(false)
                 document.querySelector('.image-node').classList.remove('saving')
-                document.querySelector('.image-node').style.minWidth = 'unset'
+                document.querySelector('.image-node').style.minWidth = '0px'
+            }).catch(err => {
+                console.log(err)
+                setIsSaving(false)
+                document.querySelector('.image-node').classList.remove('saving')
+                document.querySelector('.image-node').style.minWidth = '0px'
             })
-            .catch(function (error) {
-                setIsSaving(false)
-                document.querySelector('.image-node').classList.remove('saving')
-                console.error('oops, something went wrong!', error);
-                document.querySelector('.image-node').style.minWidth = 'unset'
-            });
         }, 1000)
     }
 
