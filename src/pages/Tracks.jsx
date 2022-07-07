@@ -61,7 +61,7 @@ const Tracks = () => {
                                 <LoadingItem key={index} layout={layout} index={index+1} />
                             ))
                         ) : (
-                            tracks && tracks.length > 0 && tracks.slice(0, itemLimit).map((item, index, arr) => (
+                            tracks && tracks.length > 0 && tracks.slice(0, itemLimit <= 0 ? 1 : itemLimit).map((item, index, arr) => (
                                 <TrackItem 
                                     key={`item-${index}`}
                                     item={item}

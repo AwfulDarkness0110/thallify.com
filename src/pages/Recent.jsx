@@ -53,7 +53,7 @@ const Tracks = () => {
                                 <LoadingItem key={index} layout={layout} />
                             ))
                         ) : (
-                            recent && recent.length > 0 && recent.slice(0, itemLimit).map((item, index, arr) => (
+                            recent && recent.length > 0 && recent.slice(0, itemLimit <= 0 ? 1 : itemLimit).map((item, index, arr) => (
                                 <RecentItem 
                                     key={`item-${index}`}
                                     item={item}
