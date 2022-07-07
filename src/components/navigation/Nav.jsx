@@ -13,13 +13,15 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
     const downloadImage = () => {
         setIsSaving(true)
         document.querySelector('.image-node').classList.add('saving')
-        document.querySelector('.image-node').style.minWidth = '400px'
+        document.querySelector('.image-node').style.minWidth = '450px'
 
         setTimeout(() => {
             html2canvas(document.querySelector('.image-node'), {
                 allowTaint: true,
                 useCORS: true,
                 scale: 2,
+                width: document.querySelector('.image-node').offsetWidth,
+                height: document.querySelector('.image-node').offsetHeight,
                 dpi: 300,
             }).then(canvas => {
                 const png = canvas.toDataURL("image/png")
