@@ -32,6 +32,7 @@
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: transparent;
+    word-break: break-all;
 }
 
 input::-webkit-outer-spin-button,
@@ -58,6 +59,7 @@ body {
     color: var(--text-dark);
     overflow-x: hidden;
     min-height: 100vh;
+    letter-spacing: initial;
 }
 
 .container {
