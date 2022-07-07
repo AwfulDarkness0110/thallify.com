@@ -13,48 +13,21 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
     const downloadImage = () => {
         setIsSaving(true)
         document.querySelector('.image-node').classList.add('saving')
+        document.querySelector('.image-node').style.minWidth = '400px'
 
         setTimeout(() => {
-            const node = document.querySelector('.image-node')
-            const newElement = document.createElement('div')
-            const newElement2 = document.createElement('div')
-            node.classList.add('saving')
-
-            newElement.className = 'p-1 title-2 border-bottom text-center'
-            newElement.style.gridColumn = '1/-1'
-            newElement.innerHTML = `
-            <div>
-            ${location.pathname.includes('/recently-played') ? 'My recently played tracks'
-            :
-            `My top ${location.pathname.includes('/top-artists') ? 'artists' : 'tracks'} ${active === 'short_term' ? 'last month' : active === 'medium_term' ? 'last 6 month' : 'of all time'}`
-            }
-            </div>
-            `
-
-            newElement2.className = `${layout === 'list_layout' ? 'p-1' : 'px-2 pt-2'} fs-5 border-top text-end`
-            newElement2.style.gridColumn = '1/-1'
-            newElement2.innerHTML = `
-            <p class="text-end">
-                Snapshot taken on thallify.com
-            </p>
-            `
-            node.insertBefore(newElement, node.firstChild)
-            node.appendChild(newElement2)
-
-            toPng(node)
+            toPng(document.querySelector('.image-node'))
             .then(function (dataUrl) {
                 saveAs(dataUrl, 'thallify.png');
                 setIsSaving(false)
-                node.classList.remove('saving')
-                document.querySelector('.image-node').removeChild(newElement)
-                document.querySelector('.image-node').removeChild(newElement2)
+                document.querySelector('.image-node').classList.remove('saving')
+                document.querySelector('.image-node').style.minWidth = 'unset'
             })
             .catch(function (error) {
                 setIsSaving(false)
-                node.classList.remove('saving')
-                document.querySelector('.image-node').removeChild(newElement)
-                document.querySelector('.image-node').removeChild(newElement2)
+                document.querySelector('.image-node').classList.remove('saving')
                 console.error('oops, something went wrong!', error);
+                document.querySelector('.image-node').style.minWidth = 'unset'
             });
         }, 1000)
     }
@@ -67,7 +40,7 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                 <div 
                     onClick={() => setTimeRange('short_term')}
                     className={`nav-item${active === 'short_term' ? ' active' : '' }`}>
-                    Last month
+                    Last 7 Days
                 </div>
                 <div 
                     onClick={() => setTimeRange('medium_term')}

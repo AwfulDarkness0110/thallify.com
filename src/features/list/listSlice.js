@@ -95,13 +95,37 @@ const listSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
+        builder.addCase(topArtists.pending, (state, action) => {
+            state.isLoading = true;
+        });
+        builder.addCase(topTracks.pending, (state, action) => {
+            state.isLoading = true;
+        });
+        builder.addCase(recentlyPlayed.pending, (state, action) => {
+            state.isLoading = true;
+        });
         builder.addCase(topArtists.fulfilled, (state, action) => {
+            state.isLoading = false;
             state.artists = action.payload.items;
         });
         builder.addCase(topTracks.fulfilled, (state, action) => {
+            state.isLoading = false;
             state.tracks = action.payload.items;
         });
         builder.addCase(recentlyPlayed.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.recent = action.payload.items;
+        });
+        builder.addCase(topArtists.rejected, (state, action) => {
+            state.isLoading = false;
+            state.artists = action.payload.items;
+        });
+        builder.addCase(topTracks.rejected, (state, action) => {
+            state.isLoading = false;
+            state.tracks = action.payload.items;
+        });
+        builder.addCase(recentlyPlayed.rejected, (state, action) => {
+            state.isLoading = false;
             state.recent = action.payload.items;
         });
     }

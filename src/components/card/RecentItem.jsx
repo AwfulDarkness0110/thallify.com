@@ -1,7 +1,7 @@
 const RecentItem = ({item, index, layout}) => {
   return (
     <a 
-      className="artist-item item-anim flex align-center bg-hover p-1"
+      className="artist-item flex flex-grow align-center bg-hover p-1"
       href={`${item.track.uri}`}
       style={{
         ['--order']: `${index}`
@@ -10,22 +10,22 @@ const RecentItem = ({item, index, layout}) => {
       {layout === 'list_layout' ? (
       <>
       <div className="flex align-center flex-grow">
-        <span
-        className="img-cover"
-          style={{
-            backgroundImage: `url('${item.track.album?.images[2].url}')`
-          }}
+        <img
+          src={item.track.album?.images[2].url}
+          className="img-cover"
+          alt={item.track.name}
         />
         <div className="flex flex-col flex-grow">
-          <span className="fs-4">{item.track.name}</span>
-          <span className="fs-5 mt-4 text-secondary text-capitalize">
+          <p className="fs-4 item-anim">{item.track.name}</p>
+          <p className="fs-6 mt-5 text-secondary item-anim">{item.track.album.name}</p>
+          <p className="fs-6 mt-5 text-secondary item-anim bold">
             {item.track.artists.map((artist, index) => (
               <span key={`artist-${index}`}>
                 {index > 0 && ', '}
                 {artist.name}
               </span>
             ))}
-          </span>
+          </p>
         </div>
         <span className="">
           {new Date(item.played_at).toLocaleTimeString()}
@@ -33,14 +33,22 @@ const RecentItem = ({item, index, layout}) => {
       </div>
       </>
       ) : (
-        <div className="w-100 flex flex-col">
-          <span
+        <div className="flex-grow flex flex-col justify-center align-center">
+          <img
+            src={item.track.album?.images[2].url}
             className="img-cover img-cover-grid"
-            style={{
-              backgroundImage: `url('${item.track.album?.images[1].url}')`,
-            }}
+            alt={item.track.name}
           />
-          <p className="fs-4 text-center text-center mt-3">{item.track.name}</p>
+          <p className="fs-5 bold text-center text-center mt-4 w-100 text-center">{item.track.name}</p>
+          <p className="fs-6 mt-5 text-secondary item-anim w-100 text-center">{item.track.album.name}</p>
+          <p className="fs-6 mt-5 text-secondary item-anim bold w-100 text-center">
+            {item.track.artists.map((artist, index) => (
+              <span key={`artist-${index}`}>
+                {index > 0 && ', '}
+                {artist.name}
+              </span>
+            ))}
+            </p>
         </div>
       )}
     </a>

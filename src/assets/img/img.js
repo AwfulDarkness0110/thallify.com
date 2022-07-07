@@ -1,12 +1,12 @@
 
 const logo = <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_107_2)">
-<circle cx="100" cy="96" r="96" fill="var(--color-primary)"/>
+<circle cx="100" cy="96" r="96" fill="var(--text-dark)"/>
 </g>
 <circle cx="100" cy="96" r="70" fill="white"/>
-<circle cx="100" cy="96" r="50" fill="var(--color-primary)"/>
+<circle cx="100" cy="96" r="50" fill="var(--text-dark)"/>
 <circle cx="100" cy="96" r="40" fill="white"/>
-<circle cx="100" cy="96" r="25" fill="var(--color-primary)"/>
+<circle cx="100" cy="96" r="25" fill="var(--text-dark)"/>
 <defs>
 <filter id="filter0_d_107_2" x="0" y="0" width="200" height="200" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
 <feFlood floodOpacity="0" result="BackgroundImageFix"/>
@@ -20,8 +20,10 @@ const logo = <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/200
 </filter>
 </defs>
 </svg>
+const spotifyLogo = require('./Spotify_Logo_CMYK_Black.png')
 
 
 export {
     logo,
+    spotifyLogo
 }

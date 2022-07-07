@@ -31,7 +31,7 @@
     color: var(--text-menu);
     fill: var(--text-menu);
     font-size: 14px;
-    opacity: 0.5;
+    opacity: 0.3;
     transition-duration: var(--transition-duration);
     cursor: pointer;
 }
@@ -41,8 +41,8 @@
 }
 .sidebar .sidebar-item.active {
     opacity: 1;
-    color: var(--color-primary);
-    fill: var(--color-primary);
+    color: var(--text-menu);
+    fill: var(--text-menu);
 }
 
 .sidebar .sidebar-item svg {
