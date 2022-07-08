@@ -5,7 +5,7 @@ import { ArtistItem, Nav, Header, LoadingItem } from "../components"
 import { spotifyLogo } from "../assets/img/img"
 
 
-const Artists = () => {
+const Iceberg = () => {
     const dispatch = useDispatch()
     const { artists, isLoading } = useSelector(state => state.list)
     const [itemLimit, setItemLimit] = useState(10)
@@ -15,7 +15,7 @@ const Artists = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
 
-        document.title = "Thallify.com | Top Artists"
+        document.title = "Thallify.com | Iceberg"
     }, [])
 
     useEffect(() => {
@@ -44,10 +44,10 @@ const Artists = () => {
                 <div className="overflow-hidden parent-node">
                     <div className={`${layout === 'list_layout' ? 'flex-col ' : 'flex-row flex-wrap p-1 justify-center gap-1 align-center '}flex bg-main min-h-sm image-node`}>
                         <div className={`spotify-logo grid-col-1-1 border-bottom flex justify-between align-center ${layout === 'list_layout' ? 'p-1' : 'w-100 pb-2'}`}>
-                            <div className="spotify-logo flex-grow">
+                            <div className="pl-1 spotify-logo flex-grow">
                                 <img src={spotifyLogo} alt="Spotify Logo" />
                             </div>
-                            <div className="text-end flex-grow">
+                            <div className="text-end pr-1 flex-grow">
                                 <p className="fs-4">
                                     My Top Artists
                                 </p>
@@ -82,4 +82,4 @@ const Artists = () => {
     )
 }
 
-export default Artists
+export default Iceberg

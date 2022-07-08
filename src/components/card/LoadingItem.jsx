@@ -3,7 +3,7 @@ import { Skeleton } from '../'
 export const LoadingItem = ({layout, index}) => {
     return (
         <div
-            className={`artist-item flex align-center bg-hover${layout === 'list_layout' ? ' p-1' : ''}`}
+            className={`artist-item flex align-center bg-hover${layout === 'list_layout' ? ' py-1 px-3' : ''}`}
             style={{
                 ['--order']: `${index}`
             }}
@@ -18,7 +18,7 @@ export const LoadingItem = ({layout, index}) => {
             <div className="flex align-center flex-grow">
             <Skeleton
                 animation={'wave'}
-                className="img-cover"
+                className="img-cover img-cover-l h-100"
             />
             <div className="flex flex-col flex-grow item-anim">
                 <Skeleton className="" width={80} height={20} animation={'wave'}/>

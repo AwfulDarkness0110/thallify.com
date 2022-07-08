@@ -44,10 +44,10 @@ const Tracks = () => {
                 <div className="overflow-hidden parent-node">
                     <div className={`${layout === 'list_layout' ? 'flex-col ' : 'flex-row flex-wrap p-1 justify-center align-center gap-1 '}flex bg-main min-h-sm image-node`}>
                         <div className={`spotify-logo grid-col-1-1 border-bottom flex justify-between align-center ${layout === 'list_layout' ? 'p-1' : 'w-100 pb-2'}`}>
-                            <div className="pl-1 spotify-logo flex-grow">
+                            <div className="spotify-logo flex-grow">
                                 <img src={spotifyLogo} alt="Spotify Logo" />
                             </div>
-                            <div className="text-end pr-1 flex-grow">
+                            <div className="text-end flex-grow">
                                 <p className="fs-4">
                                     My Top Tracks
                                 </p>

@@ -1,7 +1,7 @@
 const ArtistItem = ({item, index, layout}) => {
   return (
     <a 
-      className={`artist-item flex flex-grow align-center bg-hover p-1`}
+      className={`artist-item flex flex-grow align-center bg-hover py-1 px-3`}
       href={`${item.uri}`}
       style={{
         ['--order']: `${index}`
@@ -20,7 +20,7 @@ const ArtistItem = ({item, index, layout}) => {
         />
         <div className="flex flex-col flex-grow item-anim">
           <span className="fs-4">{item.name}</span>
-          <span className="fs-5 mt-4 text-secondary text-capitalize">{item.genres.slice(-3).join(', ')}</span>
+          <span className="fs-5 mt-5 text-secondary text-capitalize">{item.genres.slice(-3).join(', ')}</span>
         </div>
       </div>
       </>
@@ -34,7 +34,7 @@ const ArtistItem = ({item, index, layout}) => {
               alt={item.name}
             />
           </div>
-          <p className="fs-5 bold text-center text-center mt-4 w-100 text-center">{item.name}</p>
+          <p className="fs-5 bold text-center text-center mt-5 w-100 text-center">{item.name}</p>
           <p className="fs-6 mt-5 text-secondary item-anim w-100 text-center">
             {item.genres.slice(-1).join(', ')}
           </p>
