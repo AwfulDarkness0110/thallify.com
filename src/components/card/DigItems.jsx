@@ -39,7 +39,7 @@ const DigItems = ({itemLimit}) => {
         />
       ) : (
         <div className="dig">
-          <div className="dig-items">
+          <div className="dig-items dig-artists">
             {
               artists
               ?.slice(0, itemLimit < 6 ? 6 : itemLimit)
@@ -58,7 +58,7 @@ const DigItems = ({itemLimit}) => {
               ))
             }
           </div>
-          <div className="dig-items flex-grow">
+          <div className="dig-items dig-genre">
             {
               genres?.map((item, index) => (
                 <span
@@ -71,7 +71,7 @@ const DigItems = ({itemLimit}) => {
               ))
             }
           </div>
-          <div className="dig-items">
+          <div className="dig-items dig-artists">
             {
               artists
               ?.slice(0, itemLimit < 6 ? 6 : itemLimit)
