@@ -7,7 +7,7 @@ import { spotifyLogo } from "../assets/img/img"
 
 const Dig = () => {
     const dispatch = useDispatch()
-    const [itemLimit, setItemLimit] = useState(10)
+    const [itemLimit, setItemLimit] = useState(30)
     const [timeRange, setTimeRange] = useState("short_term")
     const [layout, setLayout] = useState("list_layout")
 
@@ -55,7 +55,7 @@ const Dig = () => {
                                 </p>
                             </div>
                         </div>
-                        <DigItems />
+                        <DigItems itemLimit={itemLimit} />
                         <div className={`spotify-logo grid-col-1-1 border-top text-end ${layout === 'list_layout' ? 'p-1' : 'w-100 pt-2'}`}>
                             <p className="bold fs-4">
                                 thallify.com

@@ -68,7 +68,6 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                 )}
             </div>
             <div className="nav-right">
-                {!location.pathname.includes('/dig') && (
                 <div className={`nav-item`}>
                     <input
                         onClick={(e) => e.target.select()}
@@ -76,6 +75,8 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                         type="number"
                         value={itemLimit}
                         onChange={(e) => { 
+                            location.pathname.includes('/dig') && e.target.value < 6 ?
+                            setItemLimit(6) :
                             e.target.value < 0 ?
                             setItemLimit(0) :
                             e.target.value > 50 ?
@@ -84,7 +85,6 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                         }}
                     />
                 </div>
-                )}
                 {isSaving ? (
                     <div
                         title="Downloading image"

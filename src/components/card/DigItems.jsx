@@ -4,7 +4,7 @@ import { Skeleton } from '../'
 import './styles/DigItems.css'
 
 
-const DigItems = () => {
+const DigItems = ({itemLimit}) => {
   const isLoading = useSelector(state => state.list.isLoading)
   const artists = useSelector(state => state.list.artists)
   const [genres, setGenres] = useState([])
@@ -42,7 +42,7 @@ const DigItems = () => {
           <div className="dig-items">
             {
               artists
-              ?.slice(0, 30)
+              ?.slice(0, itemLimit)
               ?.filter(artist => artist.popularity)
               ?.sort((a, b) => b?.popularity - a?.popularity )
               ?.map((item, index) => (
@@ -74,7 +74,7 @@ const DigItems = () => {
           <div className="dig-items">
             {
               artists
-              ?.slice(0, 30)
+              ?.slice(0, itemLimit)
               ?.filter(artist => artist.popularity)
               ?.sort((a, b) => b?.popularity - a?.popularity )
               ?.map((item, index) => (
