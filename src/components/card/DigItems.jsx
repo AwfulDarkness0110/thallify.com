@@ -47,7 +47,11 @@ const DigItems = () => {
               ?.sort((a, b) => b?.popularity - a?.popularity )
               ?.map((item, index) => (
                 index % 2 === 1 && (
-                  <span key={`left-${index}`} className="flex align-center h-100">
+                  <span
+                    style={{
+                      ['--order']: `${index}`
+                    }}
+                    key={`left-${index}`} className="flex align-center h-100 item-anim">
                     {item.name}
                   </span>
                 )
@@ -57,7 +61,11 @@ const DigItems = () => {
           <div className="dig-items flex-grow">
             {
               genres?.map((item, index) => (
-                <span key={`middle-${index}`} className="flex align-center h-100 text-capitalize">
+                <span
+                  style={{
+                    ['--order']: `${index}`
+                  }}
+                  key={`middle-${index}`} className="flex align-center h-100 item-anim text-capitalize">
                   {item}
                 </span>
               ))
@@ -71,7 +79,11 @@ const DigItems = () => {
               ?.sort((a, b) => b?.popularity - a?.popularity )
               ?.map((item, index) => (
                 index % 2 === 0 && (
-                <span key={`right-${index}`} className="flex align-center h-100">
+                <span
+                  style={{
+                    ['--order']: `${index}`
+                  }}
+                  key={`right-${index}`} className="flex align-center h-100 item-anim">
                   {item.name}
                 </span>
                 )
