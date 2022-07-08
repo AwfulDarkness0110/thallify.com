@@ -306,6 +306,15 @@ body {
 .pr-1 {
     padding-right: 1rem;
 }
+.pr-2 {
+    padding-right: .75rem;
+}
+.pr-3 {
+    padding-right: 0.5rem;
+}
+.pr-5 {
+    padding-right: 0.25rem;
+}
 .pl-1 {
     padding-left: 1rem;
 }
@@ -370,19 +379,19 @@ a {
     fill: var(--text-dark);
 }
 
+.opacity-0 {
+    opacity: 0;
+}
+
 .img-cover {
     margin-right: 1em;
     background: #fafafa;
     transition: opacity .1s linear;
     float: left;
     min-width: 80px;
-    min-height: 80px;
     width: 80px;
-    height: 80px;
     flex: 50px 0;
-    background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% 50%;
 }
 .img-cover.img-cover-grid {
     margin: 0;
@@ -484,13 +493,8 @@ a {
     }
     .img-cover {
         margin-right: 0.5em;
-        width: 70px;
-        height: 70px;
-        min-width: 70px;
-        min-height: 70px;
-    }
-    .img-cover.img-cover-grid {
-        /* height: 150px; */
+        width: 45px;
+        min-width: 45px;
     }
     .spotify-logo img {
         width: 80px;

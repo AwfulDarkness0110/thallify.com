@@ -20,6 +20,10 @@ const AuthGate = ({ children }) => {
         } else if (user) {
             console.log('Token will expire in minutes: ', (((+user.expiresIn * 1000) + (+user.loginTime) - Date.now()) / 60000).toFixed(2));
         }
+
+        if(!user) {
+            navigate('/');
+        }
     }, [dispatch, navigate, user]);
 
     return (

@@ -15,7 +15,7 @@ const RecentItem = ({item, index, layout}) => {
           className="img-cover"
           alt={item.track.name}
         />
-        <div className="flex flex-col flex-grow">
+        <div className="flex flex-col flex-grow pr-3">
           <p className="fs-4 item-anim">{item.track.name}</p>
           <p className="fs-6 mt-5 text-secondary item-anim">{item.track.album.name}</p>
           <p className="fs-6 mt-5 text-secondary item-anim bold">
@@ -27,8 +27,8 @@ const RecentItem = ({item, index, layout}) => {
             ))}
           </p>
         </div>
-        <span className="">
-          {new Date(item.played_at).toLocaleTimeString()}
+        <span className="time text-end flex-grow fs-5 bold">
+          {new Date(item.played_at).toLocaleTimeString('en-US', {hourCycle: 'h24', hour: 'numeric', minute: 'numeric'})}
         </span>
       </div>
       </>

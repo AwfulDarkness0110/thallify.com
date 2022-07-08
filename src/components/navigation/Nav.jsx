@@ -13,6 +13,7 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
     const downloadImage = () => {
         setIsSaving(true)
         document.querySelector('.image-node').classList.add('saving')
+        document.querySelector('.parent-node').classList.add('opacity-0')
         document.querySelector('.image-node').style.minWidth = '450px'
 
         setTimeout(() => {
@@ -29,11 +30,13 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                 setIsSaving(false)
                 document.querySelector('.image-node').classList.remove('saving')
                 document.querySelector('.image-node').style.minWidth = '0px'
+                document.querySelector('.parent-node').classList.remove('opacity-0')
             }).catch(err => {
                 console.log(err)
                 setIsSaving(false)
                 document.querySelector('.image-node').classList.remove('saving')
                 document.querySelector('.image-node').style.minWidth = '0px'
+                document.querySelector('.parent-node').classList.remove('opacity-0')
             })
         }, 1000)
     }

@@ -11,21 +11,45 @@ const Sidebar = () => {
   return (
     user ? 
     <div className="sidebar">
-      <NavLink to="/about" className="logo">
-        {logo}
-      </NavLink>
-      <NavLink to="/top-artists" className="sidebar-item">
-        {peopleIcon}
-        <span>Top Artists</span>
-      </NavLink>
-      <NavLink to="/top-tracks" className="sidebar-item">
-        {audioIcon}
-        <span>Top Tracks</span>
-      </NavLink>
-      <NavLink to="/recently-played" className="sidebar-item">
-        {historyIcon}
-        <span>Recent</span>
-      </NavLink>
+      <div className="flex flex-col justify-between flex-grow">
+        <div className="sidebar-top">
+          <NavLink to="/about" className="logo">
+            {logo}
+            <p className="mt-4 pb-2">
+              Thallify
+            </p>
+          </NavLink>
+          <NavLink to="/top-artists" className="sidebar-item">
+            {peopleIcon}
+            <span>Top Artists</span>
+          </NavLink>
+          <NavLink to="/top-tracks" className="sidebar-item">
+            {audioIcon}
+            <span>Top Tracks</span>
+          </NavLink>
+          <NavLink to="/recently-played" className="sidebar-item">
+            {historyIcon}
+            <span>Recent</span>
+          </NavLink>
+        </div>
+        <div className="text-center footer border-top">
+          <div className="flex flex-col">
+            <p className="fs-6">
+              created by
+            </p>
+            <a 
+              href="https://www.instagram.com/bohdan.khvorostovskyi/"
+              target="_blank"
+              rel='noopener noreferrer'
+            >
+              Bohdan Khvorostovskyi
+            </a>
+          </div>
+          <p className="fs-6">
+            2022
+          </p>
+        </div>
+      </div>
     </div>
     : null
   )

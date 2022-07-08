@@ -12,18 +12,25 @@ const About = () => {
     <div className="container pb-1 content pt-1">
       <div className="p-1">
         <div>
-          <h1 className="title-2">Thallify.com</h1>
+          <h1 className="title-2 bold">About Thallify.com</h1>
           <br />
           <p>
-            With Thallify.com, you can easily find your favorite tracks and artists on Spotify.
+            Thallify.com was developed by <a href="https://www.instagram.com/bohdan.khvorostovskyi/" target="_blank" rel='noopener noreferrer' className="bold">Bohdan Khvorostovskyi</a> as an open source app powered by the Spotify Web API. This service is not intended for monetization. 
             <br />
-            Make sure to download the snapshot of your top tracks or artists and share it with your friends.
+            <br />
+            For any further inquiries or suggestions, please email me at <a className="bold" href="mailto:pevbog@gmail.com">pevbog@gmail.com</a>
+            <br />
+            <br />
+            With Thallify.com, you can easily find your favorite tracks and artists on Spotify and download the snapshot for easy sharing.
+            <br />
+            <br />
+            Thanks for using Thallify.com
           </p>
         </div>
         <br />
         <br />
         <div>
-          <h1 className="title-2">Spotify access</h1>
+          <h1 className="title-2 bold">Spotify access</h1>
           <br />
           <p>
           Application requires a Spotify account. It also needs access to your Spotify account. Application works as client side only and your Spotify data is not stored.
@@ -32,10 +39,10 @@ const About = () => {
         <br />
         <br />
         <div>
-          <h1 className="title-2">Privacy</h1>
+          <h1 className="title-2 bold">Privacy</h1>
           <br />
           <p>
-          Application does not save your Spotify data to any server.
+          Application does not save your Spotify data to any server. No information shared will be stored, used, or shared with any third parties.
           </p>
         </div>
       </div>

@@ -33,7 +33,7 @@ const Tracks = () => {
                     setItemLimit={setItemLimit}
                     itemLimit={itemLimit}
                 />
-                <div className="overflow-hidden">
+                <div className="overflow-hidden parent-node">
                     <div className={`${layout === 'list_layout' ? 'flex-col ' : 'flex-row flex-wrap gap-1 p-1 justify-center align-center '}flex bg-main min-h-sm image-node`}>
                         <div className={`spotify-logo grid-col-1-1 border-bottom flex justify-between align-center ${layout === 'list_layout' ? 'p-1' : 'w-100 pb-2'}`}>
                             <div className="pl-1 spotify-logo flex-grow">
