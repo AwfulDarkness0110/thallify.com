@@ -1,0 +1,32 @@
+.dig {
+    background-image: url("../../../assets/img/dig.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 20px;
+    height: 640px;
+}
+
+.dig span {
+    user-select: none;
+}
+
+.dig-items {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+
+@media (max-width: 769px) {
+    .dig-items {
+        font-size: 10px;
+    }
+}

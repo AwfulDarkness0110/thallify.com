@@ -31,10 +31,10 @@ const Sidebar = () => {
             {historyIcon}
             <span>Recent</span>
           </NavLink>
-          {/* <NavLink to="/iceberg" className="sidebar-item">
+          <NavLink to="/dig" className="sidebar-item">
             {icebergIcon}
-            <span>Iceberg</span>
-          </NavLink> */}
+            <span>Dig</span>
+          </NavLink>
         </div>
         <div className="text-center footer border-top">
           <div className="flex flex-col">

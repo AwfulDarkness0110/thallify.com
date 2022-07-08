@@ -14,7 +14,8 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
         setIsSaving(true)
         document.querySelector('.image-node').classList.add('saving')
         document.querySelector('.parent-node').classList.add('opacity-0')
-        document.querySelector('.image-node').style.minWidth = '450px'
+        document.querySelector('.image-node').style.minWidth = '550px'
+        document.querySelector('.image-node').style.maxWidth = '550px'
 
         setTimeout(() => {
             html2canvas(document.querySelector('.image-node'), {
@@ -30,12 +31,14 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                 setIsSaving(false)
                 document.querySelector('.image-node').classList.remove('saving')
                 document.querySelector('.image-node').style.minWidth = '0px'
+                document.querySelector('.image-node').style.maxWidth = 'unset'
                 document.querySelector('.parent-node').classList.remove('opacity-0')
             }).catch(err => {
                 console.log(err)
                 setIsSaving(false)
                 document.querySelector('.image-node').classList.remove('saving')
                 document.querySelector('.image-node').style.minWidth = '0px'
+                document.querySelector('.image-node').style.maxWidth = 'unset'
                 document.querySelector('.parent-node').classList.remove('opacity-0')
             })
         }, 1000)
@@ -65,6 +68,7 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                 )}
             </div>
             <div className="nav-right">
+                {!location.pathname.includes('/dig') && (
                 <div className={`nav-item`}>
                     <input
                         onClick={(e) => e.target.select()}
@@ -80,6 +84,7 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                         }}
                     />
                 </div>
+                )}
                 {isSaving ? (
                     <div
                         title="Downloading image"
@@ -94,6 +99,8 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                         {downloadIcon}
                     </div>
                 }
+                {!location.pathname.includes('/dig') && (
+                <>
                 <div
                     className={`nav-item divider`}>
                     |
@@ -110,6 +117,8 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                     className={`nav-item${layout === 'list_layout' ? ' active' : '' }`}>
                     {listIcon}
                 </div>
+                </>
+                )}
             </div>
         </div>
     )

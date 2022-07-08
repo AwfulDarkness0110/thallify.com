@@ -3,7 +3,7 @@ import Artists from "./Artists";
 import Tracks from "./Tracks";
 import Recent from "./Recent";
 import About from "./About";
-import Iceberg from "./Iceberg";
+import Dig from "./Dig";
 
 import Callback from "./auth/Callback";
 import SpotifyLogin from "./auth/SpotifyLogin";
@@ -14,7 +14,7 @@ export {
     Tracks,
     Recent,
     About,
-    Iceberg,
+    Dig,
 
     Callback,
     SpotifyLogin,

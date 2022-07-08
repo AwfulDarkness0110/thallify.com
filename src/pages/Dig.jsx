@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { topArtists, resetList } from "../features/list/listSlice"
-import { ArtistItem, Nav, Header, LoadingItem } from "../components"
+import { Nav, Header, LoadingItem, DigItems } from "../components"
 import { spotifyLogo } from "../assets/img/img"
 
 
-const Iceberg = () => {
+const Dig = () => {
     const dispatch = useDispatch()
-    const { artists, isLoading } = useSelector(state => state.list)
     const [itemLimit, setItemLimit] = useState(10)
     const [timeRange, setTimeRange] = useState("short_term")
     const [layout, setLayout] = useState("list_layout")
@@ -47,29 +46,16 @@ const Iceberg = () => {
                             <div className="pl-1 spotify-logo flex-grow">
                                 <img src={spotifyLogo} alt="Spotify Logo" />
                             </div>
-                            <div className="text-end pr-1 flex-grow">
+                            <div className="text-center pr-1">
                                 <p className="fs-4">
-                                    My Top Artists
+                                    My Music Taste
                                 </p>
                                 <p className="fs-5 mt-5">
                                     {timeRange === "short_term" ? "Last 7 Days" : timeRange === "medium_term" ? "Last 6 Month" : "All Time"}
                                 </p>
                             </div>
                         </div>
-                        {isLoading ? (
-                            Array.from({ length: itemLimit }, (_, index) => (
-                                <LoadingItem key={index} layout={layout} index={index+1} />
-                            ))
-                        ) : (
-                            artists && artists.length > 0 && artists.slice(0, itemLimit <= 0 ? 1 : itemLimit).map((item, index, arr) => (
-                                <ArtistItem 
-                                    key={`item-${index}`}
-                                    item={item}
-                                    index={index}
-                                    layout={layout}
-                                    maxItemLimit={artists.length}
-                                />
-                        )))}
+                        <DigItems />
                         <div className={`spotify-logo grid-col-1-1 border-top text-end ${layout === 'list_layout' ? 'p-1' : 'w-100 pt-2'}`}>
                             <p className="bold fs-4">
                                 thallify.com
@@ -82,4 +68,4 @@ const Iceberg = () => {
     )
 }
 
-export default Iceberg
+export default Dig

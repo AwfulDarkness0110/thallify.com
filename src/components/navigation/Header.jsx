@@ -10,7 +10,7 @@ const Header = () => {
                 {
                     location.pathname.includes('/top-artists') ? 'Top Artists' :
                     location.pathname.includes('/top-tracks') ? 'Top Tracks' :
-                    location.pathname.includes('/iceberg') ? 'Iceberg' :
+                    location.pathname.includes('/dig') ? 'Dig Deeper' :
                     "Recent"
                 }
             </h1>

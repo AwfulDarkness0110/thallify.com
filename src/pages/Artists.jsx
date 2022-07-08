@@ -47,7 +47,7 @@ const Artists = () => {
                             <div className="spotify-logo flex-grow">
                                 <img src={spotifyLogo} alt="Spotify Logo" />
                             </div>
-                            <div className="text-end flex-grow">
+                            <div className="text-center">
                                 <p className="fs-4">
                                     My Top Artists
                                 </p>

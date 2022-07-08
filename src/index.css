@@ -363,7 +363,8 @@ body {
     background-color: var(--color-tertiary);
 }
 .bg-gradient {
-    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,0,120,1) 100%);
+    background: rgb(255,0,120);
+    background: linear-gradient(0deg, rgba(255,0,120,1) 0%, rgba(255,0,168,1) 100%);
 }
 .bg-primary {
     background: var(--color-primary)

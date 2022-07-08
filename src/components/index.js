@@ -5,6 +5,7 @@ import TrackItem from "./card/TrackItem";
 import RecentItem from "./card/RecentItem";
 import Skeleton from "./card/Skeleton";
 import LoadingItem from "./card/LoadingItem";
+import DigItems from "./card/DigItems";
 
 import Nav from "./navigation/Nav";
 import Header from "./navigation/Header";
@@ -18,6 +19,7 @@ export {
     RecentItem,
     Skeleton,
     LoadingItem,
+    DigItems,
 
     Nav,
     Header,

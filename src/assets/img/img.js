@@ -21,17 +21,11 @@ const logo = <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/200
 </defs>
 </svg>
 const spotifyLogo = require('./Spotify_Logo_CMYK_Black.png')
-const iceberg1 = require('./iceberg-1.jpg')
-const iceberg2 = require('./iceberg-2.jpg')
-const iceberg3 = require('./iceberg-3.jpg')
-const iceberg4 = require('./iceberg-4.jpg')
+const digImg = require('./dig.jpg')
 
 
 export {
     logo,
     spotifyLogo,
-    iceberg1,
-    iceberg2,
-    iceberg3,
-    iceberg4,
+    digImg
 }

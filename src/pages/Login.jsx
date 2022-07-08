@@ -17,7 +17,7 @@ const Login = () => {
     return (
         <>
         <div 
-            className="px-1 text-center bg-primary relative overflow-hidden"
+            className="px-1 text-center bg-gradient relative overflow-hidden"
         >
             <div
                 style={{
