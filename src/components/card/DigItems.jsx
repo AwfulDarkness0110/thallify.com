@@ -42,7 +42,7 @@ const DigItems = ({itemLimit}) => {
           <div className="dig-items">
             {
               artists
-              ?.slice(0, itemLimit)
+              ?.slice(0, itemLimit < 6 ? 6 : itemLimit)
               ?.filter(artist => artist.popularity)
               ?.sort((a, b) => b?.popularity - a?.popularity )
               ?.map((item, index) => (
@@ -74,7 +74,7 @@ const DigItems = ({itemLimit}) => {
           <div className="dig-items">
             {
               artists
-              ?.slice(0, itemLimit)
+              ?.slice(0, itemLimit < 6 ? 6 : itemLimit)
               ?.filter(artist => artist.popularity)
               ?.sort((a, b) => b?.popularity - a?.popularity )
               ?.map((item, index) => (

@@ -75,8 +75,6 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
                         type="number"
                         value={itemLimit}
                         onChange={(e) => { 
-                            location.pathname.includes('/dig') && e.target.value < 6 ?
-                            setItemLimit(6) :
                             e.target.value < 0 ?
                             setItemLimit(0) :
                             e.target.value > 50 ?
