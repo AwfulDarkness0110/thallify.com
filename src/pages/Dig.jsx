@@ -14,7 +14,7 @@ const Dig = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
 
-        document.title = "Thallify.com | Iceberg"
+        document.title = "Thallify.com | Dig Deeper"
     }, [])
 
     useEffect(() => {

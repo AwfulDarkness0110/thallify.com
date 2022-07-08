@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux/es/exports'
 import { logo } from '../../assets/img/img'
-import { peopleIcon, audioIcon, historyIcon, icebergIcon } from '../../assets/icons/icons'
+import { peopleIcon, audioIcon, historyIcon, digIcon } from '../../assets/icons/icons'
 import "./styles/Sidebar.css"
 
 
@@ -32,7 +32,7 @@ const Sidebar = () => {
             <span>Recent</span>
           </NavLink>
           <NavLink to="/dig" className="sidebar-item">
-            {icebergIcon}
+            {digIcon}
             <span>Dig</span>
           </NavLink>
         </div>
