@@ -1,11 +1,16 @@
 import { useEffect } from 'react'
-import React from 'react'
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../firebase';
 
 const About = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
 
     document.title = "Thallify.com | About"
+
+    logEvent(analytics, 'screen_view', {
+      screen_name: `About`
+    });
   }, [])
 
   return (
@@ -42,7 +47,7 @@ const About = () => {
           <h1 className="title-2 bold">Privacy</h1>
           <br />
           <p>
-          Application does not save your Spotify data to any server. No information shared will be stored, used, or shared with any third parties.
+          Application does not save your Spotify data to any server. No information shared will be stored, used, or shared with any third parties. We use Google analytics to make a better user experience.
           </p>
         </div>
       </div>

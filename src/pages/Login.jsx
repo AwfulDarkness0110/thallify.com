@@ -3,10 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { SpotifyLogin } from './';
 import { logo } from '../assets/img/img';
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../firebase';
 
 const Login = () => {
     const navigate = useNavigate();
     const { user } = useSelector(state => state.user);
+
+    useEffect(() => {
+        logEvent(analytics, 'screen_view', {
+            screen_name: `Login`
+        });
+    }, []);
 
     useEffect(() => {
         if (user) {

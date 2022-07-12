@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { topArtists, resetList } from "../features/list/listSlice"
-import { Nav, Header, LoadingItem, DigItems } from "../components"
+import { Nav, Header, DigItems } from "../components"
 import { spotifyLogo } from "../assets/img/img"
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../firebase';
 
 
 const Dig = () => {
@@ -15,6 +17,10 @@ const Dig = () => {
         window.scrollTo(0, 0)
 
         document.title = "Thallify.com | Dig Deeper"
+
+        logEvent(analytics, 'screen_view', {
+            screen_name: `Dig`
+        });
     }, [])
 
     useEffect(() => {

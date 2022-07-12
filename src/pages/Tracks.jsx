@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { topTracks, resetList } from "../features/list/listSlice"
 import { TrackItem, Nav, Header, LoadingItem } from "../components"
 import { spotifyLogo } from "../assets/img/img"
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../firebase';
 
 
 const Tracks = () => {
@@ -16,6 +18,10 @@ const Tracks = () => {
         window.scrollTo(0, 0)
 
         document.title = "Thallify.com | Top Tracks"
+
+        logEvent(analytics, 'screen_view', {
+            screen_name: `Top Tracks`
+        });
     }, [])
 
     useEffect(() => {

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { recentlyPlayed, resetList } from "../features/list/listSlice"
 import { RecentItem, Nav, Header, LoadingItem } from "../components"
 import { spotifyLogo } from "../assets/img/img"
+import { logEvent } from 'firebase/analytics';
+import { analytics } from '../firebase';
 
 
 const Tracks = () => {
@@ -16,6 +18,10 @@ const Tracks = () => {
         const promise = dispatch(recentlyPlayed())
 
         document.title = "Thallify.com | Recently Played"
+
+        logEvent(analytics, 'screen_view', {
+            screen_name: `Recently Played`
+        });
 
         return () => {
             promise && promise.abort()
