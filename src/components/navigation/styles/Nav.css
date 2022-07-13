@@ -26,6 +26,7 @@
 
 .nav-right,
 .nav-left {
+    position: relative;
     display: flex;
     gap: 20px;
 }
@@ -60,7 +61,6 @@
 
 .nav-item.active {
     opacity: 1;
-    border-color: var(--text-menu);
 }
 
 .nav-item input {
@@ -77,6 +77,14 @@
     cursor: default;
     opacity: 1;
     color: var(--color-border);
+}
+
+.tabs-indicator {
+    background-color: var(--text-dark);
+    height: 4px;
+    position: absolute;
+    transition-duration: var(--transition-duration);
+    bottom: 0px;
 }
 
 @media (max-width: 769px) {
@@ -103,5 +111,9 @@
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         justify-content: space-around;
+    }
+
+    .tabs-indicator{
+        bottom: 15px;
     }
 }
