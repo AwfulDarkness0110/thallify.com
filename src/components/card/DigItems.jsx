@@ -36,7 +36,7 @@ const DigItems = ({itemLimit}) => {
           height={640}
           animation="wave"
         />
-      ) : artists && (
+      ) : artists && artists.length > 0 && (
         <div className="dig">
           <div className="dig-items dig-artists">
             {
@@ -91,7 +91,7 @@ const DigItems = ({itemLimit}) => {
           </div>
         </div>
       )}
-      {!isLoading && isError && (!artists || artists.length === 0) && (
+      {!isLoading && artists && artists.length === 0 && (
         <div className="text-center p-1">
             Your list is empty. Try listening to more music and then come back to this page.
         </div>

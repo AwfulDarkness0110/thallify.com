@@ -68,7 +68,7 @@ const Tracks = () => {
                                     maxItemLimit={recent.length}
                                 />
                         )))}
-                        {!isLoading && isError && (!recent || recent.length === 0) && (
+                        {!isLoading  && recent && recent.length === 0 && (
                             <div className="text-center p-1">
                                 Your list is empty. Try listening to more music and then come back to this page.
                             </div>
