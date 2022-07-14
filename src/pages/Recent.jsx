@@ -9,7 +9,7 @@ import { analytics } from '../firebase';
 
 const Tracks = () => {
     const dispatch = useDispatch()
-    const { recent, isLoading } = useSelector(state => state.list)
+    const { recent, isLoading, isError } = useSelector(state => state.list)
     const [itemLimit, setItemLimit] = useState(10)
     const [layout, setLayout] = useState("list_layout")
 
@@ -43,7 +43,7 @@ const Tracks = () => {
                     <div className={`${layout === 'list_layout' ? 'flex-col ' : 'flex-row flex-wrap gap-1 p-1 justify-center align-center '}flex bg-main min-h-sm image-node`}>
                         <div className={`spotify-logo grid-col-1-1 border-bottom flex justify-between align-center ${layout === 'list_layout' ? 'p-1' : 'w-100 pb-2'}`}>
                             <div className="spotify-logo flex-grow">
-                                <img src={spotifyLogo} alt="Spotify Logo" />
+                                {spotifyLogo}
                             </div>
                             <div className="text-center">
                                 <p className="fs-4">
@@ -68,6 +68,11 @@ const Tracks = () => {
                                     maxItemLimit={recent.length}
                                 />
                         )))}
+                        {!isLoading && isError && (!recent || recent.length === 0) && (
+                            <div className="text-center p-1">
+                                Your list is empty. Try listening to more music and then come back to this page.
+                            </div>
+                        )}
                         <div className={`spotify-logo grid-col-1-1 border-top text-end ${layout === 'list_layout' ? 'p-1' : 'w-100 pt-2'}`}>
                             <p className="bold fs-4">
                                 thallify.com

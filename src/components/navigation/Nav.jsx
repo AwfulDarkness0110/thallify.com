@@ -34,7 +34,6 @@ const Nav = ({active, setTimeRange, setLayout, layout, setItemLimit, itemLimit, 
         }
     }, [active, windowWidth])
 
-
     const downloadImage = () => {
         setIsSaving(true)
         document.querySelector('.image-node').classList.add('saving')

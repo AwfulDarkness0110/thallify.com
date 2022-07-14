@@ -1,11 +1,12 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux/es/exports'
 import { logo } from '../../assets/img/img'
-import { peopleIcon, audioIcon, historyIcon, digIcon } from '../../assets/icons/icons'
+import { peopleIcon, audioIcon, historyIcon, digIcon, peopleFillIcon, audioFillIcon, historyFillIcon } from '../../assets/icons/icons'
 import "./styles/Sidebar.css"
 
 
 const Sidebar = () => {
+  const location = useLocation()
   const { user } = useSelector(state => state.user)
 
   return (
@@ -20,15 +21,15 @@ const Sidebar = () => {
             </p>
           </NavLink>
           <NavLink to="/top-artists" className="sidebar-item">
-            {peopleIcon}
+            {location.pathname === "/top-artists" ? peopleFillIcon : peopleIcon}
             <span>Top Artists</span>
           </NavLink>
           <NavLink to="/top-tracks" className="sidebar-item">
-            {audioIcon}
+            {location.pathname === "/top-tracks" ? audioFillIcon : audioIcon}
             <span>Top Tracks</span>
           </NavLink>
           <NavLink to="/recently-played" className="sidebar-item">
-            {historyIcon}
+            {location.pathname === "/recently-played" ? historyFillIcon : historyIcon}
             <span>Recent</span>
           </NavLink>
           <NavLink to="/dig" className="sidebar-item">

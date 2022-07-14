@@ -118,15 +118,18 @@ const listSlice = createSlice({
         });
         builder.addCase(topArtists.rejected, (state, action) => {
             state.isLoading = false;
-            state.artists = action.payload.items;
+            state.isError = true;
+            state.msg = action.payload;
         });
         builder.addCase(topTracks.rejected, (state, action) => {
             state.isLoading = false;
-            state.tracks = action.payload.items;
+            state.isError = true;
+            state.msg = action.payload;
         });
         builder.addCase(recentlyPlayed.rejected, (state, action) => {
             state.isLoading = false;
-            state.recent = action.payload.items;
+            state.isError = true;
+            state.msg = action.payload;
         });
     }
 });

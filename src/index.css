@@ -32,6 +32,17 @@
     padding: 0;
     -webkit-tap-highlight-color: transparent;
 }
+*::-webkit-scrollbar {
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--color-tertiary);
+}
+*::-webkit-scrollbar-thumb {
+    min-height: 65px;
+    background-color: var(--color-border);
+    border: 1px solid var(--color-border);
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -433,8 +444,36 @@ a {
     animation: spin 1s linear infinite;
 }
 
-.spotify-logo img {
+/* .spotify-logo img {
     width: 120px;
+} */
+.spotify-logo svg {
+    width: 120px;
+    min-width: 120px;
+    fill: #000000!important;
+}
+.spotify-logo svg path {
+    fill: #000000!important;
+}
+
+.icon-sm svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-dark);
+}
+.icon-btn {
+    padding: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition-duration: var(--transition-duration);
+}
+.icon-btn:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 @keyframes spin {
@@ -499,9 +538,6 @@ a {
         padding-bottom: 85px;
     }
 
-    .grid-sm {
-        /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
-    }
     .img-cover {
         margin-right: 0.5em;
         width: 45px;
@@ -510,9 +546,13 @@ a {
     .img-cover-l {
         height: 50px;
     }
-    .spotify-logo img {
+    .spotify-logo svg {
         width: 80px;
         min-width: 80px;
+    }
+    
+    .d-none-sm {
+        display: none;
     }
 }
 

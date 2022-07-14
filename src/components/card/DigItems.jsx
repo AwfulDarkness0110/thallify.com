@@ -5,8 +5,7 @@ import './styles/DigItems.css'
 
 
 const DigItems = ({itemLimit}) => {
-  const isLoading = useSelector(state => state.list.isLoading)
-  const artists = useSelector(state => state.list.artists)
+  const { isLoading, isError, artists } = useSelector(state => state.list)
   const [genres, setGenres] = useState([])
 
   useEffect(() => {
@@ -37,7 +36,7 @@ const DigItems = ({itemLimit}) => {
           height={640}
           animation="wave"
         />
-      ) : (
+      ) : artists && (
         <div className="dig">
           <div className="dig-items dig-artists">
             {
@@ -90,6 +89,11 @@ const DigItems = ({itemLimit}) => {
               ))
             }
           </div>
+        </div>
+      )}
+      {!isLoading && isError && (!artists || artists.length === 0) && (
+        <div className="text-center p-1">
+            Your list is empty. Try listening to more music and then come back to this page.
         </div>
       )}
     </>
